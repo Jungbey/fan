@@ -3,10 +3,12 @@ import { css, setup } from 'goober';
 import { MainBody } from './components/main-body';
 import { Console } from './components/console';
 
+interface AppProps { }
+
 setup(React.createElement);
 
-function App() {
-  const [currentLevel, setCurrentLevel] = useState(0);
+const App: React.FC<AppProps> = () => {
+  const [currentLevel, setCurrentLevel] = useState<number>(0);
 
   return (
     <div className={css`
@@ -35,7 +37,7 @@ function App() {
             position: absolute;
             bottom: 35px;
             z-index: -2;
-        `}/>
+        `} />
         <Console level={currentLevel} onLevelchange={setCurrentLevel} />
       </div>
     </div>

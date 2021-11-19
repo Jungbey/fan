@@ -3,6 +3,9 @@ import cover from '../../assets/cover.svg';
 import blade from '../../assets/blade.svg';
 import { css, keyframes } from 'goober';
 
+interface Props {
+  level: number;
+}
 
 const rotate = keyframes`
     0% {
@@ -18,7 +21,7 @@ const rotate = keyframes`
     }
 `;
 
-export const MainBody = ({ level }) => {
+export const MainBody = ({ level }: Props) => {
   return (
     <div className={css`
       width: 350px;
@@ -36,14 +39,14 @@ export const MainBody = ({ level }) => {
           width: 100%;
           height: 100%;
         `}
-      />
+       />
       <img
         src={blade}
         alt="blade"
         className={css`
           position: absolute;
           z-index: -1;
-          animation: ${rotate} ${level ? .006 / level : 0}s linear infinite;
+          animation: ${rotate} ${level ? .006/level : 0}s linear infinite;
         `}
       />
     </div>

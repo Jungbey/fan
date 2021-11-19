@@ -1,8 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import background from '../../assets/console.svg';
 import { css, styled } from 'goober';
 
-const Button = styled("div")`
+interface ConsoleProps {
+  level: number;
+  onLevelchange: (level: number) => void;
+}
+
+interface ButtonProps {
+  active: boolean;
+}
+
+const Button = styled("div")<ButtonProps>`
   width: 20px;
   height: 20px;
   border: 1px solid #979797;
@@ -12,13 +21,13 @@ const Button = styled("div")`
   transition: all .1s ease-in;
 `
 
-let initialStatus = []
+let initialStatus: number[] = []
 for(let i = 0; i<5; i++) initialStatus.push(i);
 
-export const Console = ({ level=0, onLevelchange }) => {
-  const a = useRef(initialStatus);
+export const Console = ({ level=0, onLevelchange }: ConsoleProps) => {
+  const a = useRef<number[]>(initialStatus);
 
-  const handleChange = (index) => {
+  const handleChange = (index: number) => {
     onLevelchange(index);
   }
 
