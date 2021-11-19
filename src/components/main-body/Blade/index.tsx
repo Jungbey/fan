@@ -1,13 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { css, keyframes } from 'goober';
 import BladeShapes from './BladeShapes';
-
-interface Props {
-  fill: string;
-  stroke?: string;
-  level: number;
-  bladeflag: boolean;
-}
+import { useBladeState } from '@/store/useBladeState';
 
 const rotate = keyframes`
     0% {
@@ -23,8 +17,8 @@ const rotate = keyframes`
     }
 `;
 
-const Blade: React.FC<Props> = ({ fill = '#D8D8D8', stroke = '#979797', level }) => {
-  const [shapeIndex, setShapeIndex] = useState<number>(0);
+const Blade: React.FC = () => {
+  const { shapeIndex, stroke, fill, rotateLevel } = useBladeState();
 
   const renderBlade = () => {
     const InnerBlade = BladeShapes[shapeIndex];
@@ -35,7 +29,7 @@ const Blade: React.FC<Props> = ({ fill = '#D8D8D8', stroke = '#979797', level })
   return (
     <div
       className={css`
-        animation: ${rotate} ${level ? .055 / level : 0}s linear infinite;
+        animation: ${rotate} ${rotateLevel ? .055 / rotateLevel : 0}s linear infinite;
       `}
     >
       {renderBlade()}

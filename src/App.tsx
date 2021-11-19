@@ -3,20 +3,25 @@ import { css, setup } from 'goober';
 import { MainBody } from './components/main-body';
 import { Console } from './components/console';
 import AppContainer from './components/app_container';
+import { useBladeState } from '@/store/useBladeState';
 
 setup(React.createElement);
 
 const App: React.FC = () => {
-  const [currentLevel, setCurrentLevel] = useState<number>(0);
-  const [color, setColor] = useState<string>('#D8D8D8')
-  const [changeBladeFlag, setChangeBladeFlag] = useState<boolean>(true)
+  const {
+    changeShapeIndex: changeBladeShape,
+    changeColor: changeBladeColor,
+  } = useBladeState();
+  const [color, setColor] = useState<string>('#D8D8D8');
+
   const changeColor: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setColor(e.target.value)
+    setColor(e.target.value);
+    changeBladeColor(e.target.value);
   }
   return (
     <>
       <AppContainer>
-        <MainBody level={currentLevel} color={color} bladeflag={changeBladeFlag} />
+        <MainBody color={color} />
         <div
           className={css`
             width: 26px;
@@ -27,8 +32,9 @@ const App: React.FC = () => {
             position: absolute;
             bottom: 35px;
             z-index: -2;
-        `} />
-        <Console level={currentLevel} onLevelchange={setCurrentLevel} />
+          `}
+        />
+        <Console />
       </AppContainer>
       <input type="color"
         id="color"
@@ -44,7 +50,7 @@ const App: React.FC = () => {
           right: 80px;
           bottom: 120px;
         `}
-        onClick={() => { setChangeBladeFlag(!changeBladeFlag) }}
+        onClick={changeBladeShape}
       >
         切换扇叶
       </button>
