@@ -1,11 +1,13 @@
 import React from 'react'
 import { css, keyframes } from 'goober';
+
 interface Props {
   fill: string;
   stroke?: string;
   level: number;
   bladeflag: boolean;
 }
+
 const rotate = keyframes`
     0% {
         transform: rotate(0deg);
@@ -28,12 +30,11 @@ const Blade: React.FC<Props> = ({ fill = '#D8D8D8', stroke = '#979797', level, b
           <svg width="297px" height="297px"
             viewBox="0 0 297 297" version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
             className={css`
-    position: absolute;
-    z-index: -1;
-    animation: ${rotate} ${level ? .006 / level : 0}s linear infinite;
-  `}
+              position: absolute;
+              z-index: -1;
+              animation: ${rotate} ${level ? .006 / level : 0}s linear infinite;
+            `}
           >
             <title>Group</title>
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -52,12 +53,11 @@ const Blade: React.FC<Props> = ({ fill = '#D8D8D8', stroke = '#979797', level, b
           <svg width="330px" height="325px"
             viewBox="0 0 330 325" version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
             className={css`
-    position: absolute;
-    z-index: -1;
-    animation: ${rotate} ${level ? .006 / level : 0}s linear infinite;
-  `}
+              position: absolute;
+              z-index: -1;
+              animation: ${rotate} ${level ? .006 / level : 0}s linear infinite;
+            `}
           >
             <title>Group</title>
             <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

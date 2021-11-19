@@ -1,40 +1,24 @@
-import React, { useState } from 'react';
+import React, { ChangeEventHandler, useState } from 'react';
 import { css, setup } from 'goober';
 import { MainBody } from './components/main-body';
 import { Console } from './components/console';
-
-interface AppProps { }
+import AppContainer from './components/app_container';
 
 setup(React.createElement);
 
-const App: React.FC<AppProps> = () => {
+const App: React.FC = () => {
   const [currentLevel, setCurrentLevel] = useState<number>(0);
   const [color, setColor] = useState<string>('#D8D8D8')
   const [changeBladeFlag, setChangeBladeFlag] = useState<boolean>(true)
-  const changeColor = () => {
-    var Color = document.querySelector("#color");
-    setColor(Color.value)
+  const changeColor: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setColor(e.target.value)
   }
   return (
     <>
-      <div className={css`
-      min-width: 100vw;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    `}>
-        <div className={css`
-        height: 462px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-      `}>
-          <MainBody level={currentLevel} color={color} bladeflag={changeBladeFlag} />
-          <div
-            className={css`
+      <AppContainer>
+        <MainBody level={currentLevel} color={color} bladeflag={changeBladeFlag} />
+        <div
+          className={css`
             width: 26px;
             height: 252px;
             border: 1px solid #979797;
@@ -44,10 +28,8 @@ const App: React.FC<AppProps> = () => {
             bottom: 35px;
             z-index: -2;
         `} />
-          <Console level={currentLevel} onLevelchange={setCurrentLevel} />
-        </div>
-
-      </div>
+        <Console level={currentLevel} onLevelchange={setCurrentLevel} />
+      </AppContainer>
       <input type="color"
         id="color"
         className={css`
@@ -55,7 +37,7 @@ const App: React.FC<AppProps> = () => {
         right: 80px;
         bottom: 80px;
       `}
-        onChange={() => { changeColor() }} />
+        onChange={changeColor} />
       <button
         className={css`
         position: fixed;
