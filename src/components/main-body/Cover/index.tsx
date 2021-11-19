@@ -2,12 +2,7 @@ import React from 'react'
 import { css } from 'goober';
 import { useColorState } from '@/store';
 
-interface Props {
-  fill: string;
-  stroke?: string;
-}
-
-const Cover: React.FC<Props> = () => {
+const Cover: React.FC = () => {
   const { coverColor, coverCenterColor } = useColorState();
   return (
     <svg width="350px" height="350px" viewBox="0 0 350 350" version="1.1" xmlns="http://www.w3.org/2000/svg"

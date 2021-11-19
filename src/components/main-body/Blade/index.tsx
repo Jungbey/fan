@@ -1,7 +1,7 @@
 import React from 'react'
 import { css, keyframes } from 'goober';
 import BladeShapes from './BladeShapes';
-import { useBladeState } from '@/store/useBladeState';
+import { useBladeState, useColorState } from '@/store';
 
 const rotate = keyframes`
     0% {
@@ -18,12 +18,13 @@ const rotate = keyframes`
 `;
 
 const Blade: React.FC = () => {
-  const { shapeIndex, stroke, fill, rotateLevel } = useBladeState();
+  const { shapeIndex, rotateLevel } = useBladeState();
+  const bladeColor = useColorState().bladeColor;
 
   const renderBlade = () => {
     const InnerBlade = BladeShapes[shapeIndex];
     return (
-      <InnerBlade {...{ fill, stroke }} />
+      <InnerBlade fill={bladeColor} stroke={bladeColor} />
     )
   }
   return (

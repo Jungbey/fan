@@ -3,12 +3,7 @@ import { css } from 'goober';
 import Blade from './Blade'
 import Cover from './Cover'
 
-interface Props {
-  color: string;
-}
-
-const MainBody = ({ color }: Props) => {
-
+const MainBody = () => {
   return (
     <div
       className={css`
@@ -21,7 +16,7 @@ const MainBody = ({ color }: Props) => {
         position: relative;
       `}
     >
-      <Cover fill={color} />
+      <Cover />
       <Blade />
     </div>
   )

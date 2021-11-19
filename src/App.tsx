@@ -3,25 +3,24 @@ import { css, setup } from 'goober';
 import { MainBody } from './components/main-body';
 import { Console } from './components/console';
 import AppContainer from './components/app_container';
-import { useBladeState } from '@/store/useBladeState';
+import { useBladeState, useColorState } from '@/store';
 
 setup(React.createElement);
 
 const App: React.FC = () => {
   const {
     changeShapeIndex: changeBladeShape,
-    changeColor: changeBladeColor,
   } = useBladeState();
-  const [color, setColor] = useState<string>('#D8D8D8');
+  const changeBladeColor = useColorState().setBladeColor;
 
   const changeColor: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setColor(e.target.value);
+
     changeBladeColor(e.target.value);
   }
   return (
     <>
       <AppContainer>
-        <MainBody color={color} />
+        <MainBody />
         <div
           className={css`
             width: 26px;
