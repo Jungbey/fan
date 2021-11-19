@@ -4,11 +4,12 @@ import { combine } from 'zustand/middleware';
 export const useColorState = create(
   combine(
     {
-      bladeColor: "#D8D8D8",
-      coverColor: "#ADADAD",
-      coverCenterColor: "#9A9A9A",
-      bridgeColor: "#D8D8D8",
-      consoleColor: "#D8D8D8",
+      bladeColor: "#FDF0D5",
+      coverColor: "#DEF3FB",
+      coverCenterColor: "#FDE0B2",
+      coverBorderColor: "#F5F4F2",
+      bridgeColor: "#DFE0DE",
+      consoleColor: "#DFE0DE",
       consoleBtnColors: ["#D8D8D8", "#D8D8D8", "#D8D8D8", "#D8D8D8", "#D8D8D8"],
     },
     (set) => ({
@@ -25,6 +26,11 @@ export const useColorState = create(
       setCoverCenterColor: (color: string) => {
         set({
           coverCenterColor: color,
+        });
+      },
+      setCoverBorderColor: (color: string) => {
+        set({
+          coverBorderColor: color,
         });
       },
       setBridgeColor: (color: string) => {
