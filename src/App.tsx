@@ -3,6 +3,7 @@ import { css, setup } from 'goober';
 import { MainBody } from './components/main-body';
 import { Console } from './components/console';
 import AppContainer from './components/app_container';
+import Bridge from './components/bridge';
 import { useBladeState, useColorState } from '@/store';
 
 setup(React.createElement);
@@ -21,18 +22,7 @@ const App: React.FC = () => {
     <>
       <AppContainer>
         <MainBody />
-        <div
-          className={css`
-            width: 26px;
-            height: 252px;
-            border: 1px solid #979797;
-            background-color: #D8D8D8;
-            margin: 0 auto;
-            position: absolute;
-            bottom: 35px;
-            z-index: -2;
-          `}
-        />
+        <Bridge />
         <Console />
       </AppContainer>
       <input type="color"
