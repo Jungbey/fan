@@ -1,10 +1,10 @@
 # FAN  
 
-a visual fan,but with physical attributes  
+a visual fan, but with physical attributes  
 
 ### Feature  
 - replaceable skins  
-- can change gear  
+- change blade  
 ...and more  
 
 ### Quick Start  
