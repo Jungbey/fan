@@ -1,13 +1,24 @@
 import React from 'react';
 import background from '../../assets/console.svg';
-import { css, styled } from 'goober';
+import { css, styled, keyframes } from 'goober';
 import { useBladeState } from '@/store/useBladeState';
 
 interface ButtonProps {
   active: boolean;
 }
+const translateY = keyframes`
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
 
-const Button = styled('div') <ButtonProps>`
+    100% {
+      transform: translateY(0px);
+    }
+`;
+const Button = styled('div')<ButtonProps>`
   width: 20px;
   height: 20px;
   border: 1px solid #979797;
@@ -18,12 +29,16 @@ const Button = styled('div') <ButtonProps>`
 `;
 
 export const Console = () => {
-  const {
-    rotateLevel,
-    changeLevel
-  } = useBladeState();
-
-  const handleChange = (index: number) => {
+  const { rotateLevel, changeLevel } = useBladeState();
+  const handleChange = (index: number, event: React.MouseEvent) => {
+    if (index === 0) {
+      const target = event.currentTarget;
+      target.setAttribute(
+        'style',
+        'animation:' + translateY.toString() + ' 0.2s linear'
+      );
+      setTimeout(() => target.removeAttribute('style'), 200);
+    }
     changeLevel(index);
   };
 
@@ -52,14 +67,12 @@ export const Console = () => {
             justify-content: space-between;
           `}
         >
-          {
-            new Array(5).fill(0).map((_, index) => (
-              <Button
-                active={index === rotateLevel && index !== 0}
-                onClick={() => handleChange(index)}
-              />
-            ))
-          }
+          {new Array(5).fill(0).map((_, index) => (
+            <Button
+              active={index === rotateLevel && index !== 0}
+              onClick={(event) => handleChange(index, event)}
+            />
+          ))}
         </div>
       </div>
     </div>
