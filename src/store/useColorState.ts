@@ -5,7 +5,8 @@ export const useColorState = create(
   combine(
     {
       bladeColor: "#D8D8D8",
-      coverColor: "#D8D8D8",
+      coverColor: "#ADADAD",
+      coverCenterColor: "#9A9A9A",
       bridgeColor: "#D8D8D8",
       consoleColor: "#D8D8D8",
       consoleBtnColors: ["#D8D8D8", "#D8D8D8", "#D8D8D8", "#D8D8D8", "#D8D8D8"],
@@ -19,6 +20,11 @@ export const useColorState = create(
       setCoverColor: (color: string) => {
         set({
           coverColor: color,
+        });
+      },
+      setCoverCenterColor: (color: string) => {
+        set({
+          coverCenterColor: color,
         });
       },
       setBridgeColor: (color: string) => {
