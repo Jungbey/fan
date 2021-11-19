@@ -23,15 +23,17 @@ const rotate = keyframes`
 
 export const MainBody = ({ level }: Props) => {
   return (
-    <div className={css`
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    `}>
+    <div
+      className={css`
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      `}
+    >
       <img
         src={cover}
         alt="cover"
@@ -39,16 +41,16 @@ export const MainBody = ({ level }: Props) => {
           width: 100%;
           height: 100%;
         `}
-       />
+      />
       <img
         src={blade}
         alt="blade"
         className={css`
           position: absolute;
           z-index: -1;
-          animation: ${rotate} ${level ? .006/level : 0}s linear infinite;
+          animation: ${rotate} ${level ? 0.006 / level : 0}s linear infinite;
         `}
       />
     </div>
-  )
-}
+  );
+};

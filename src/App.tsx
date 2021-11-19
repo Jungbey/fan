@@ -17,15 +17,16 @@ const App: React.FC = () => {
           width: 26px;
           height: 252px;
           border: 1px solid #979797;
-          background-color: #D8D8D8;
+          background-color: #d8d8d8;
           margin: 0 auto;
           position: absolute;
           bottom: 35px;
           z-index: -2;
-      `} />
+        `}
+      />
       <Console level={currentLevel} onLevelchange={setCurrentLevel} />
     </AppContainer>
   );
-}
+};
 
 export default App;
