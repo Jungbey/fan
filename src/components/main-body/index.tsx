@@ -1,6 +1,6 @@
 import React from 'react';
 import cover from '../../assets/cover.svg';
-import blade from '../../assets/blade.svg';
+import blade from '../../assets/blade_shape_1.svg';
 import { css, keyframes } from 'goober';
 
 interface Props {
@@ -44,9 +44,10 @@ export const MainBody = ({ level }: Props) => {
         src={blade}
         alt="blade"
         className={css`
+          width: 80%;
           position: absolute;
           z-index: -1;
-          animation: ${rotate} ${level ? .006/level : 0}s linear infinite;
+          animation: ${rotate} ${level ? .0055/level : 0}s linear infinite;
         `}
       />
     </div>
