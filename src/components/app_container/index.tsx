@@ -9,14 +9,16 @@ const Conainer: FC = ({ children }) => (
   justify-content: center;
   align-items: center;
 `}>
-    <div className={css`
-    height: 462px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  `}>
+    <div
+      className={css`
+        height: 462px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      `}
+    >
       {children}
     </div>
   </div>
