@@ -6,10 +6,12 @@ interface Props {
 }
 const Cover: React.FC<Props> = ({ fill = '#D8D8D8', stroke = '#979797' }) => {
   return (
-    <svg width="350px" height="350px" viewBox="0 0 350 350" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    <svg width="350px" height="350px" viewBox="0 0 350 350" version="1.1" xmlns="http://www.w3.org/2000/svg"
       className={css`
           width: 100%;
           height: 100%;
+          position: absolute;
+          z-index: 10;
         `}
     >
       <title>Group</title>

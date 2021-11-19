@@ -37,7 +37,6 @@ const MainBody = ({ level, color, bladeflag }: Props) => {
     >
       <Cover fill={color} />
       <Blade fill={color} level={level} bladeflag={bladeflag} />
-
     </div>
   )
 }

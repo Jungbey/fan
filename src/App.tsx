@@ -40,12 +40,14 @@ const App: React.FC = () => {
         onChange={changeColor} />
       <button
         className={css`
-        position: fixed;
-        right: 80px;
-        bottom: 120px;
-      `}
-        onClick={() => { setChangeBladeFlag(!changeBladeFlag) }}>
-        切换扇叶</button>
+          position: fixed;
+          right: 80px;
+          bottom: 120px;
+        `}
+        onClick={() => { setChangeBladeFlag(!changeBladeFlag) }}
+      >
+        切换扇叶
+      </button>
     </>
   );
 }
