@@ -5,9 +5,9 @@ export const useColorState = create(
   combine(
     {
       bladeColor: "#FDF0D5",
-      coverColor: "#DEF3FB",
+      coverColor: "#B1C9D3",
       coverCenterColor: "#FDE0B2",
-      coverBorderColor: "#F5F4F2",
+      coverBorderColor: "#9DC1DD",
       bridgeColor: "#DFE0DE",
       consoleColor: "#DFE0DE",
       consoleBtnColors: ["#D8D8D8", "#D8D8D8", "#D8D8D8", "#D8D8D8", "#D8D8D8"],
