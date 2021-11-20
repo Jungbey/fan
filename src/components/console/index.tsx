@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import background from '../../assets/console.svg';
 import btnVoice from '@/assets/voice/button.wav'
 import { css, styled, keyframes } from 'goober';
 import { useBladeState } from '@/store/useBladeState';
+import Background from './Background';
 
 interface ButtonProps {
   active: boolean;
@@ -14,11 +14,11 @@ const translateY = keyframes`
     50% {
         transform: translateY(10px);
     }
-
     100% {
       transform: translateY(0px);
     }
 `;
+
 const Button = styled('div')<ButtonProps>`
   width: 20px;
   height: 20px;
@@ -51,9 +51,9 @@ export const Console = () => {
         width: 280px;
         height: 35px;
         margin: 0 auto;
-        background: url(${background}) center / 280px 35px no-repeat;
         display: flex;
         justify-content: center;
+        flex-direction: column;
       `}
     >
       <div
@@ -62,6 +62,7 @@ export const Console = () => {
           height: 20px;
           overflow: hidden;
           transform: translateY(-18px);
+          align-self: center;
         `}
       >
         <div
@@ -79,6 +80,7 @@ export const Console = () => {
           <audio src={btnVoice} ref={btnAudioRef}></audio>
         </div>
       </div>
+      <Background />
     </div>
   );
 };

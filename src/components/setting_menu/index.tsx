@@ -12,12 +12,14 @@ const SettingMenu = () => {
     coverBorderColor,
     bridgeColor,
     consoleColor,
+    consoleBtnColors,
     setBladeColor,
     setCoverColor,
     setCoverCenterColor,
     setCoverBorderColor,
     setBridgeColor,
     setConsoleColor,
+    setConsoleBtnColors
   } = useColorState();
 
   return (
