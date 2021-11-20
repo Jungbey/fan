@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { css } from 'goober';
 
-const Conainer: FC = ({ children }) => (
+const Container: FC = ({ children }) => (
   <div className={css`
   min-width: 100vw;
   min-height: 100vh;
@@ -24,4 +24,4 @@ const Conainer: FC = ({ children }) => (
   </div>
 )
 
-export default Conainer;
+export default Container;
