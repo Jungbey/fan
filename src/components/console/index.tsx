@@ -1,9 +1,7 @@
 import React from 'react';
-import background from '../../assets/console.svg';
 import { css, styled, keyframes } from 'goober';
 import { useBladeState } from '@/store/useBladeState';
 import Background from './Background';
-// import { useColorState } from '@/store';
 
 interface ButtonProps {
   active: boolean;
@@ -29,23 +27,6 @@ const Button = styled('div')<ButtonProps>`
   transform: translateY(${(props) => (props.active ? 10 : 0)}px);
   transition: all 0.1s ease-in;
 `;
-// const Button = (props: ButtonProps) => {
-//   const buttonColor = useColorState().consoleBtnColors;
-//   return (
-//     <div
-//       className={css`
-//         width: 20px;
-//         height: 20px;
-//         border: 1px solid #979797;
-//         border-radius: 8px 8px 0 0;
-//         background-color: ${buttonColor[props.index]};
-//         transform: translateY(${props.active ? 10 : 0}px);
-//         transition: all 0.1s ease-in;
-//       `}
-//       onClick={(event) => props.handleClick(event)}
-//     />
-//   );
-// };
 
 export const Console = () => {
   const { rotateLevel, changeLevel } = useBladeState();
