@@ -30,7 +30,7 @@ const Blade: React.FC = () => {
   return (
     <div
       className={css`
-        animation: ${rotate} ${rotateLevel ? .055 / rotateLevel : 0}s linear infinite;
+        animation: ${rotate} ${rotateLevel ? .45 / rotateLevel : 0}s linear infinite;
       `}
     >
       {renderBlade()}
