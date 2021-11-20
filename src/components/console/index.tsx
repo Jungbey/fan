@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React from 'react';
-=======
 import React, { useRef } from 'react';
-import background from '../../assets/console.svg';
 import btnVoice from '@/assets/voice/button.wav'
->>>>>>> main
 import { css, styled, keyframes } from 'goober';
 import { useBladeState } from '@/store/useBladeState';
 import Background from './Background';
