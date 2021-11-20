@@ -1,11 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import background from '../../assets/console.svg';
 import { css, styled, keyframes } from 'goober';
-
-interface ConsoleProps {
-  level: number;
-  onLevelchange: (level: number) => void;
-}
+import { useBladeState } from '@/store/useBladeState';
 
 interface ButtonProps {
   active: boolean;
@@ -14,7 +10,6 @@ const translateY = keyframes`
     0% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(10px);
     }
@@ -33,12 +28,8 @@ const Button = styled('div')<ButtonProps>`
   transition: all 0.1s ease-in;
 `;
 
-let initialStatus: number[] = [];
-for (let i = 0; i < 5; i++) initialStatus.push(i);
-
-export const Console = ({ level = 0, onLevelchange }: ConsoleProps) => {
-  const a = useRef<number[]>(initialStatus);
-
+export const Console = () => {
+  const { rotateLevel, changeLevel } = useBladeState();
   const handleChange = (index: number, event: React.MouseEvent) => {
     if (index === 0) {
       const target = event.currentTarget;
@@ -48,7 +39,7 @@ export const Console = ({ level = 0, onLevelchange }: ConsoleProps) => {
       );
       setTimeout(() => target.removeAttribute('style'), 200);
     }
-    onLevelchange(index);
+    changeLevel(index);
   };
 
   return (
@@ -76,10 +67,9 @@ export const Console = ({ level = 0, onLevelchange }: ConsoleProps) => {
             justify-content: space-between;
           `}
         >
-          {a.current.map((index) => (
+          {new Array(5).fill(0).map((_, index) => (
             <Button
-              key={index}
-              active={index === level && index !== 0}
+              active={index === rotateLevel && index !== 0}
               onClick={(event) => handleChange(index, event)}
             />
           ))}
