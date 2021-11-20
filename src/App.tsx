@@ -5,6 +5,7 @@ import { Console } from './components/console';
 import AppContainer from './components/app_container';
 import Bridge from './components/bridge';
 import SettingMenu from './components/setting_menu';
+import VoicePlayer from '@/components/voice_player';
 
 setup(React.createElement);
 
@@ -15,6 +16,7 @@ const App: React.FC = () => (
       <Bridge />
       <Console />
     </AppContainer>
+    <VoicePlayer />
     <SettingMenu />
   </>
 );

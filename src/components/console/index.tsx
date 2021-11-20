@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, { useRef } from 'react';
+import background from '../../assets/console.svg';
+import btnVoice from '@/assets/voice/button.wav'
+>>>>>>> main
 import { css, styled, keyframes } from 'goober';
 import { useBladeState } from '@/store/useBladeState';
 import Background from './Background';
@@ -29,8 +35,10 @@ const Button = styled('div')<ButtonProps>`
 `;
 
 export const Console = () => {
+  const btnAudioRef = useRef<HTMLAudioElement>(null);
   const { rotateLevel, changeLevel } = useBladeState();
-  const handleChange = (index: number, event: React.MouseEvent) => {
+  const handleClick = (index: number, event: React.MouseEvent) => {
+    btnAudioRef.current?.play();
     if (index === 0) {
       const target = event.currentTarget;
       target.setAttribute(
@@ -71,9 +79,10 @@ export const Console = () => {
           {new Array(5).fill(0).map((_, index) => (
             <Button
               active={index === rotateLevel && index !== 0}
-              onClick={(event) => handleChange(index, event)}
+              onClick={(event) => handleClick(index, event)}
             />
           ))}
+          <audio src={btnVoice} ref={btnAudioRef}></audio>
         </div>
       </div>
       <Background />
